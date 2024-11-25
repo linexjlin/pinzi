@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cross Layout</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div id="layout" class="flex justify-center items-center min-h-screen">
+        <div class="grid grid-cols-3 gap-1 w-48">
+            <!-- Empty top-left cell -->
+            <div class="h-16"></div>
+            <!-- Top character -->
+            <div id="p1" class="h-16 flex items-center justify-center text-2xl font-bold rounded"></div>
+            <!-- Empty top-right cell -->
+            <div class="h-16"></div>
+            
+            <!-- Middle row -->
+            <div id="p4" class="h-16 flex items-center justify-center text-2xl font-bold rounded"></div>
+            <div id="p0" class="h-16 flex items-center justify-center text-2xl font-bold rounded"></div>
+            <div id="p2" class="h-16 flex items-center justify-center text-2xl font-bold rounded"></div>
+            
+            <!-- Empty bottom-left cell -->
+            <div class="h-16"></div>
+            <!-- Bottom character -->
+            <div id="p3" class="h-16 flex items-center justify-center text-2xl font-bold rounded"></div>
+            <!-- Empty bottom-right cell -->
+            <div class="h-16"></div>
+        </div>
+    </div>
+
+    <script>
+        // Function to get URL parameters
+        function getUrlParam(param, defaultValue = '') {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param) || defaultValue;
+        }
+
+        // Get values from URL parameters
+        const p0 = getUrlParam('p0', 'A');
+        const p1 = getUrlParam('p1', '才');
+        const p2 = getUrlParam('p2', '分');
+        const p3 = getUrlParam('p3', '次');
+        const p4 = getUrlParam('p4', '化');
+        const color = getUrlParam('color', '352333');
+        
+        // Get background colors from URL parameters
+        const bg0 = getUrlParam('background_color0', '9747FF');
+        const bg1 = getUrlParam('background_color1', '9747FF');
+        const bg2 = getUrlParam('background_color2', '9747FF');
+        const bg3 = getUrlParam('background_color3', '9747FF');
+        const bg4 = getUrlParam('background_color4', '9747FF');
+
+        // Set the text content
+        document.getElementById('p0').textContent = p0;
+        document.getElementById('p1').textContent = p1;
+        document.getElementById('p2').textContent = p2;
+        document.getElementById('p3').textContent = p3;
+        document.getElementById('p4').textContent = p4;
+
+        // Apply colors and background colors
+        const elements = [
+            { id: 'p0', bg: bg0 },
+            { id: 'p1', bg: bg1 },
+            { id: 'p2', bg: bg2 },
+            { id: 'p3', bg: bg3 },
+            { id: 'p4', bg: bg4 }
+        ];
+
+        elements.forEach(({ id, bg }) => {
+            const element = document.getElementById(id);
+            element.style.color = `#${color}`;
+            element.style.backgroundColor = `#${bg}`;
+        });
+    </script>
+</body>
+</html>
