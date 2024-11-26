@@ -12,7 +12,10 @@
 # 用法
 
 ## 生成题目
+
 `python pinzi.py`
+
+![](images/run_screenshot.png)
 
 ## 控制数量
 
