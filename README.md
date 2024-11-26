@@ -37,6 +37,8 @@ p0-p4 是 5 个文字
 color 是文字颜色
 background_color0 是每个文字的背景色。
 
+![](images/run_screenshot_2.png)
+
 
 
 
